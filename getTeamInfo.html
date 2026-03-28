@@ -1,0 +1,35 @@
+<!--This will be hte html page to just get info about one team, i.e matches the played where you can see score and such  
+    LOWEST PRIORITy 
+-->
+    <head>
+  <link rel="stylesheet" href="css/getTeamInfo.css" type="text/css" >
+  <link rel="icon" href="./assets/JRLLogo.png">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <title>View Match Scores</title>
+</head>
+<body>
+	<div class="">
+		Team # <input type="number" style="width: 50px" name="teamNumber" id="teamNumber">
+		<input type="button" value="Set" id="setTeamNumber"><br>
+	</div>
+
+    <div class="teamInfo">
+        <h3 id="teamName" name="teamName">Team Name: -1</h3>
+        <h3 id="teamNum" name="teamNum">Team Number: -1</h3>
+    </div>
+	<div class="qualificationScore">
+        <h5 id="matchPlayed" name="matchPlayed">Match Played: -1</h5>
+        <h5 id="autoScore" name="autoScore">Auto Score: -1</h5>
+        <h5 id="teleScore" name="teleScore">Tele Score: -1</h5>
+        <h5 id="endgameScore" name="endgameScore">Endgames Score: -1</h5>
+        <h5 id="qualiScore" name="qualiScore">Qualification Score: -1</h5>
+	</div>
+    <div class="matchReview">
+        <h3>Matches</h3>
+        <div id="table-container">
+
+
+        </div>
+    </div>
+	<script type="text/javascript" src="./js/teamInfoScript.js"></script>
+</body>

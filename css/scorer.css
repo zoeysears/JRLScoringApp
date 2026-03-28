@@ -1,0 +1,257 @@
+button {
+    display: inline;
+    padding: 0% 0%;
+    width: 20%;
+    height: 50%;
+    font-size: 200%;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5%;
+    box-shadow: 0 1px #999;
+  }
+  .reset, .confirmBtn{
+    width: 30%;
+  }
+  
+  button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 3px #665;
+    transform: translateY(4px);
+  }
+  .confirmBtn{
+    background-color: #555;
+    font-size: 175%;
+    margin: 10px;
+  }
+  
+  .plusSubContainer {
+    display: inline-block;
+    width: 100%;
+    padding: 1% 0%;
+  }
+  
+  .plusbutton {
+    background-color: #00cc00;
+  }
+  
+  .Subbutton {
+    background-color: #ff3300;
+  }
+  
+  .counterBlue {
+    display: inline-block;
+    text-align: center;
+    border: none;
+    font-size: 190%;
+    width: 50%;
+    color: blue;
+  }
+  
+  .counterRed {
+    display: inline-block;
+    text-align: center;
+    border: none;
+    font-size: 190%;
+    width: 50%;
+    color: red;
+  }
+  
+  .label {
+    text-align: center;
+    font-size: 150%;
+    background-color: blue;
+  }
+  
+  
+  .container {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.7fr 1.1fr;
+    gap: 0px 0px;
+    grid-auto-flow: column;
+    grid-template-areas:
+      "Water-Double Earth-Double"
+      "Water-Single Earth-Single";
+  }
+  
+  
+  .SectionLabel { 
+      grid-area: SectionLabel; 
+  }
+  
+  .AutoLabel { grid-area: AutoLabel; }
+  
+  .TeleLabel { grid-area: TeleLabel; }
+  
+  .RedLabel { grid-area: RedLabel; }
+  
+  .BlueLabel { grid-area: BlueLabel; }
+  
+  .Counter { grid-area: Counter; }
+  
+  .RadioButton{
+    width: 100%;
+    height: 100%;
+      
+    font-size: 125%;
+  }
+  
+  .main-grid{
+    background-color: #333333;
+   display: grid; 
+    grid-auto-flow: column; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 0.2fr 1fr 0.2fr 1fr 0.2fr 1fr;
+    gap: 3px 3px; 
+    grid-template-areas: 
+     "AutoTitle AutoTitle"
+     "Auto-Section Auto-Section"
+     "TeleTitle TeleTitle"
+      "Earth-Side Water-Side"
+     "EndTitle EndTitle"
+      "Endgame Endgame "; 
+  }
+  
+  .Endgame{
+    padding: 5px 5px;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "Label1 robotNone1 robotParked1 robotClimb1"
+      "Label2 robotNone2 robotParked2 robotClimb2"
+      "Label3 robotNone3 robotParked3 robotClimb3";
+    grid-area: Endgame;
+  }
+  
+  .Label1, .wizNone1, .wizLow1, .wizMid1, .wizHigh1,
+  .Label2, .wizNone2, .wizLow2, .wizMid2, .wizHigh2,
+  .Label3, .wizNone3, .wizLow3, .wizMid3, .wizHigh3,
+  .Label4, .robotNone1, .robotParked1, .robotClimb1,
+  .Label5, .robotNone2, .robotParked2, .robotClimb2,
+  .Label6, .robotNone3, .robotParked3, .robotClimb3
+  {
+      text-align: center;
+      align-content: center;
+      font-size: 133%;
+  }
+  
+  .Auto-Section{
+    background-color: #ffffff;
+      padding: 5px 5px;
+      display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 3px 3px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". Label1 Counter1 ."
+      "Label2 . . Label3 "
+      "Counter2 . . Counter4"
+      "Counter3 . . Counter5";
+    grid-area: Auto-Section;
+  }
+  .Label1 {grid-area: Label1;}
+  .Label2 {grid-area: Label2;}
+  .Label3 {grid-area: Label3;}
+  .Counter1 {grid-area: Counter1;}
+  .Counter2 {grid-area: Counter2;}
+  .Counter3 {grid-area: Counter3;}
+  .Counter4 {grid-area: Counter4;}
+  .Counter5 {grid-area: Counter5;}
+  
+  .Title {
+      grid-area: Title;
+      text-align: center;
+      font-size: 190%;
+  }
+  .AutoTitle {
+      grid-area: Title;
+      text-align: center;
+      font-size: 190%;
+      background-color: yellow;
+      grid-area: AutoTitle;
+  }
+  .TeleTitle {
+      grid-area: Title;
+      text-align: center;
+      font-size: 190%;
+      background-color:#aaffaa;
+      grid-area: TeleTitle;
+  }
+  .EndTitle {
+      grid-area: Title;
+      text-align: center;
+      font-size: 190%;
+      background-color: #ffaaff;
+      grid-area: EndTitle;
+  }
+  
+  .Earth-Side {  
+    display: grid;
+    background-color: #ffffff;
+    padding: 5px 5px;
+    grid-template-columns: 0.9fr 1.5fr;
+    grid-template-rows: 0.8fr 1.1fr 1.1fr 1.1fr;
+    gap: 0px 0px;
+    grid-auto-flow: column;
+    grid-template-areas:
+      "Title Title"
+      "Label1 Counter1"
+      "Label2 Counter2"
+      "Label3	Counter3";
+    grid-area: Earth-Side;
+  }
+  .Water-Side {  display: grid;
+    background-color: #ffffff;
+    padding: 5px 5px;
+    grid-template-columns: 0.9fr 1.5fr;
+    grid-template-rows: 0.8fr 1.1fr 1.1fr 1.1fr ; 
+    gap: 0px 0px;
+    grid-auto-flow: column;
+    grid-template-areas:
+      "Title Title"
+      "Label1 Counter1"
+      "Label2 Counter2"
+      "Label3	Counter3";
+    grid-area: Water-Side;
+  }
+  
+  
+  .Water-Single {  display: grid;
+    background-color: #ffffff;
+    padding: 5px 5px;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 0.7fr 1.1fr 1.1fr 1.1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "SectionLabel SectionLabel"
+      "AutoLabel Counter1"
+      "RedLabel Counter2"
+      "BlueLabel Counter3";
+    grid-area: Water-Single;
+  }
+  
+  .Earth-Single {  display: grid;
+    background-color: #ffffff;
+    padding: 5px 5px;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 0.7fr 1.1fr 1.1fr 1.1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "SectionLabel SectionLabel"
+      "AutoLabel Counter1"
+      "RedLabel Counter2"
+      "BlueLabel Counter3";
+    grid-area: Earth-Single;
+  }
+  

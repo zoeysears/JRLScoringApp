@@ -1,0 +1,84 @@
+<head>
+  <link rel="stylesheet" href="css/viewOldMatchScore.css" type="text/css" >
+  <link rel="icon" href="./assets/JRLLogo.png">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <title>View Match Scores</title>
+</head>
+<body>
+	<div class="">
+		match# <input type="number" style="width: 50px" name="match" id="match">
+		<input type="button" value="Set" id="matchSet"><br>
+	</div>
+
+
+	<div class="pointReviewSection">
+		<h5 id="matchNum" name="matchNum">Match: -1</h5>
+
+		<div class="red">
+			<br>
+			Red 1 team# <input type="number" style="width: 50px" name="red1_team_num" id="red1"><br>
+			Red 2 team# <input type="number" style="width: 50px" name="red2_team_num" id="red2"><br>
+			Red 3 team# <input type="number" style="width: 50px" name="red3_team_num" id="red3"><br>
+			<br>
+			Mobility <input type="number" style="width: 50px" name="red_auto_mob" id="red_mob"><br>
+
+			<br>
+			Auto GP#1 High <input type="number" style="width: 50px" name="red_auto_gp1_high" id="red_auto_gp1_high"><br>
+			Auto GP#1 Low <input type="number" style="width: 50px" name="red_auto_gp1_low" id="red_auto_gp1_low"><br>
+			Auto GP#1 High <input type="number" style="width: 50px" name="red_auto_gp2_high" id="red_auto_gp2_high"><br>
+			Auto GP#2 Low <input type="number" style="width: 50px" name="red_auto_gp2_low" id="red_auto_gp2_low"><br>
+
+			<br>
+			Tele GP#1 High <input type="number" style="width: 50px" name="red_tele_gp1_high" id="red_tele_gp1_high"><br>
+			Tele GP#1 Low <input type="number" style="width: 50px" name="red_tele_gp1_low" id="red_tele_gp1_low"><br>
+			Tele GP#1 High <input type="number" style="width: 50px" name="red_tele_gp2_high" id="red_tele_gp2_high"><br>
+			Tele GP#2 Low <input type="number" style="width: 50px" name="red_tele_gp2_low" id="red_tele_gp2_low"><br>
+
+			<br>
+			Park <input type="number" style="width: 50px" name="red_park" id="red_park"><br>
+			Climb <input type="number" style="width: 50px" name="red_climb" id="red_climb"><br>
+
+			<br>
+			Red Foul <input type="number" style="width: 50px" name="red_foul" id="red_foul"><br>
+			Red Tech Foul <input type="number" style="width: 50px" name="red_tech_foul" id="red_tech_foul"><br>
+
+			Ranking Points <input type="number" style="width: 50px" name="red_ranking_points" id="red_ranking_points"><br>
+		</div>
+
+		<div class="blue">
+			<br>
+			Blue 1 team# <input type="number" style="width: 50px" name="blue1_team_num" id="blue1"><br>
+			Blue 2 team# <input type="number" style="width: 50px" name="blue2_team_num" id="blue2"><br>
+			Blue 3 team# <input type="number" style="width: 50px" name="blue3_team_num" id="blue3"><br>
+			<br>
+
+			Mobility <input type="number" style="width: 50px" name="blue_mob" id="blue_mob"><br>
+
+			<br>
+			Auto GP#1 High <input type="number" style="width: 50px" name="blue_auto_gp1_high" id="blue_auto_gp1_high"><br>
+			Auto GP#1 Low <input type="number" style="width: 50px" name="blue_auto_gp1_low" id="blue_auto_gp1_low"><br>
+			Auto GP#2 High <input type="number" style="width: 50px" name="blue_auto_gp2_high" id="blue_auto_gp2_high"><br>
+			Auto GP#2 Low <input type="number" style="width: 50px" name="blue_auto_gp2_low" id="blue_auto_gp2_low"><br>
+
+			<br>
+			Tele GP#1 High <input type="number" style="width: 50px" name="blue_tele_gp1_high" id="blue_tele_gp1_high"><br>
+			Tele GP#1 Low <input type="number" style="width: 50px" name="blue_tele_gp1_low" id="blue_tele_gp1_low"><br>
+			Tele GP#2 High <input type="number" style="width: 50px" name="blue_tele_gp2_high" id="blue_tele_gp2_high"><br>
+			Tele GP#2 Low <input type="number" style="width: 50px" name="blue_tele_gp2_low" id="blue_tele_gp2_low"><br>
+
+			<br>
+			Park <input type="number" style="width: 50px" name="blue_park" id="blue_park"><br>
+			Climb <input type="number" style="width: 50px" name="blue_climb" id="blue_climb"><br>
+
+			<br>
+			Blue Foul <input type="number" style="width: 50px" name="blue_foul" id="blue_foul"><br>
+			Blue Tech Foul <input type="number" style="width: 50px" name="blue_tech_foul" id="blue_tech_foul"><br>
+
+			Ranking Points <input type="number" style="width: 50px" name="blue_ranking_points" id="blue_ranking_points"><br>
+		</div>
+		<div class="submit"> 
+			<input type="button" value="Submit" id="submit">
+		</div>
+	</div>
+	<script type="text/javascript" src="./js/viewOldMatch.js"></script>
+</body>

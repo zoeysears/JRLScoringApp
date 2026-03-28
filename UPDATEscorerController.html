@@ -1,0 +1,92 @@
+<head>
+  <link rel="stylesheet" href="css/ScoreController.css" type="text/css" >
+  <link rel="icon" href="./assets/JRLLogo.png">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <title>JRL Score Controller</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="coop_btn">
+			<h5 id="matchNum" name="matchNum">Match: -1</h5>
+            <button id="nextMatch">Next Match</button>
+			match#<input type="number" style="width: 50px" name="match" id="match">
+			<input type="button" value="Set" id="matchSet"><br>
+		</div>
+		<div class="btns1">
+			<form id="form" target="_blank"></form>
+				<input type="button" value="Lock" id="lockbtn">
+				<input type="button" value="Submit" id="submit">
+				<button id="showBlack">Show Black</button>
+                <button id="showScore">Show Match</button>
+				<button id="showReveal">Show Reveal</button> 
+		</div>
+		
+		<div class="btns2">
+			<form id="form" target="_blank"></form>
+				<button id="clearData">Clear Team Data</button>
+				<button id="updateTeamRanks">Update Team Ranks</button>
+		</div>
+
+		<div class="red1">
+		<b><class style="color:red;">RED</b>          Confirm:<input id = "red_confirm" type="checkbox"><br>
+			<br>
+			Red 1 team# <input type="number" style="width: 50px" name="red1_team_num" id="red1"><br>
+			Red 2 team# <input type="number" style="width: 50px" name="red2_team_num" id="red2"><br>
+			Red 3 team# <input type="number" style="width: 50px" name="red3_team_num" id="red3"><br>
+			<br>
+			Mobility <input type="number" style="width: 50px" name="red_auto_mob" id="red_auto_mob"><br>
+			<br>
+			Auto Diamond Refinery <input type="number" style="width: 50px" name="red_auto_diamond_ref" id="red_auto_diamond_ref"><br>
+			Auto Ore Refinery<input type="number" style="width: 50px" name="red_auto_ore_ref" id="red_auto_ore_ref"><br>
+			Auto Diamond Depot<input type="number" style="width: 50px" name="red_auto_diamond_depo" id="red_auto_diamond_depo"><br>
+			Auto Ore Depot<input type="number" style="width: 50px" name="red_auto_ore_depo" id="red_auto_ore_depo"><br>
+
+			<br>
+			Tele Diamond Refinery <input type="number" style="width: 50px" name="red_tele_diamond_ref" id="red_tele_diamond_ref"><br>
+			Tele Ore Refinery<input type="number" style="width: 50px" name="red_tele_ore_ref" id="red_tele_ore_ref"><br>
+			Tele Diamond Depot<input type="number" style="width: 50px" name="red_tele_diamond_depo" id="red_tele_diamond_depo"><br>
+			Tele Ore Depot<input type="number" style="width: 50px" name="red_tele_ore_depo" id="red_tele_ore_depo"><br>
+
+			<br>
+			Park <input type="number" style="width: 50px" name="red_endgame_park" id="red_endgame_park"><br>
+			Climb <input type="number" style="width: 50px" name="red_endgame_climb" id="red_endgame_climb"><br>
+			<br>
+			Red Foul <input type="number" style="width: 50px" name="red_foul" id="red_foul"><br>
+			Red Tech Foul <input type="number" style="width: 50px" name="red_tech_foul" id="red_tech_foul"><br>
+		</div>
+
+
+		<div class="blue1">
+		<b><class style="color:blue;">blue</b>          Confirm:<input id = "blue_confirm" type="checkbox"><br>
+			<br>
+			Blue 1 team# <input type="number" style="width: 50px" name="blue1_team_num" id="blue1"><br>
+			Blue 2 team# <input type="number" style="width: 50px" name="blue2_team_num" id="blue2"><br>
+			Blue 3 team# <input type="number" style="width: 50px" name="blue3_team_num" id="blue3"><br>
+			<br>
+			Mobility <input type="number" style="width: 50px" name="blue_auto_mob" id="blue_auto_mob"><br>
+			<br>
+			Auto Diamond Refinery <input type="number" style="width: 50px" name="blue_auto_diamond_ref" id="blue_auto_diamond_ref"><br>
+			Auto Ore Refinery<input type="number" style="width: 50px" name="blue_auto_ore_ref" id="blue_auto_ore_ref"><br>
+			Auto Diamond Depot<input type="number" style="width: 50px" name="blue_auto_diamond_depo" id="blue_auto_diamond_depo"><br>
+			Auto Ore Depot<input type="number" style="width: 50px" name="blue_auto_ore_depo" id="blue_auto_ore_depo"><br>
+
+			<br>
+			Tele Diamond Refinery <input type="number" style="width: 50px" name="blue_tele_diamond_ref" id="blue_tele_diamond_ref"><br>
+			Tele Ore Refinery<input type="number" style="width: 50px" name="blue_tele_ore_ref" id="blue_tele_ore_ref"><br>
+			Tele Diamond Depot<input type="number" style="width: 50px" name="blue_tele_diamond_depo" id="blue_tele_diamond_depo"><br>
+			Tele Ore Depot<input type="number" style="width: 50px" name="blue_tele_ore_depo" id="blue_tele_ore_depo"><br>
+
+			<br>
+			Park <input type="number" style="width: 50px" name="blue_endgame_park" id="blue_endgame_park"><br>
+			Climb <input type="number" style="width: 50px" name="blue_endgame_climb" id="blue_endgame_climb"><br>
+			<br>
+			Blue Foul <input type="number" style="width: 50px" name="blue_foul" id="blue_foul"><br>
+			Blue Tech Foul <input type="number" style="width: 50px" name="blue_tech_foul" id="blue_tech_foul"><br>
+		</div>
+	</div>
+	
+	<!--<input type="submit" value="Submit">-->
+    <!--script type="text/javascript" src="js/scoreCalc.js"></script>
+    <script type="text/javascript" src="./js/ScoreControllerScript.js"></script>
+</body> -->
