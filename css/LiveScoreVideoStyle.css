@@ -1,0 +1,113 @@
+*{
+	margin :0;
+	padding:0;
+	font-family : "Bad Script";
+}
+
+html { 
+	background: magenta;
+}
+
+#centered {
+	background-color: green;
+	top : 90%;
+	right : 50%;
+	transform : translate (-50%, 90%);
+	text-align : center;
+	width : 100%;
+	background: clear;
+	z-index:-1;
+	height: 20%;
+}
+.spacer {
+	width : 100%;
+	height : 0px;
+}
+
+#blueSide{
+	background-color:blue;
+	background-size : 65%;
+	border-radius: 9px;
+	background-repeat : no-repeat;	
+	background-position: top;
+	width : 40%;
+	font-size : 150%;
+	color : black;
+	position : absolute;
+	padding-bottom : 0%;
+	right: 60%;
+	top: 0%;
+	height: 184px;
+}
+
+#redSide{
+	background-color: red;
+	background-size : 65%;
+	border-radius: 0px;
+	background-repeat : no-repeat;
+	background-position: top;
+	width : 40%;
+	height: 184px;
+	font-size : 150%;
+	color : black;
+	position :absolute;
+	left : 60%;
+	top : 0%;
+	
+}
+.score {
+	color : white;
+	font-size : 500%;
+	margin : auto;
+	text-shadow: 5px 5px black;
+}
+
+.team_blue {
+	margin : 0px;
+	padding-left: 50px;
+	padding-top : 0px;
+	font-size : 150%; 
+	float: left;
+}
+.team_red {
+	margin : 0px;
+	padding-right: 50px;
+	padding-top : 0px;
+	font-size : 150%; 
+	float: right;
+}
+
+#matchNum {
+	font-size : 400%;
+	color : white;
+	text-align : top;
+	text-align : center;
+	width : 100%;
+	background: clear;
+	
+	text-shadow: 5px 5px black;
+}
+
+#time {
+	vertical-align: top;
+    font-size: 600%;
+    text-align: center;
+    color: white;
+    margin: auto;
+    padding: 0px 0px;
+	width : 50%;
+	
+	text-shadow: 5px 5px black;
+}
+
+#logo {
+	display: inline-block;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	position: relative;
+	height:400px;
+	width:80%;
+	z-index: 2;
+    left : 10%;
+}
