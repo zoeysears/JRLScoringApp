@@ -1,23 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title> Blue Balance </title>
-  <link rel="stylesheet" href="css/BalanceStyle.css" type="text/css" >
-  <script src="js/jquery-3.1.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Red Alliance Breakdown</title>
+    <link rel="stylesheet" href="css/BalanceStyle.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        body { font-family: Arial; background:#111; color:white; text-align:center; }
+        .breakdown { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:1200px; margin:20px auto; }
+        .section { background:#300; padding:15px; border-radius:10px; border:2px solid #f00; }
+        table { width:100%; border-collapse:collapse; }
+        th, td { padding:10px; border:1px solid #666; }
+        th { background:#900; }
+        .total { font-size:2.2em; color:gold; margin:15px 0; }
+    </style>
 </head>
-
 <body>
-	<style>
-		body {
-		  background: content-box url("img/blue balance visual.svg");
-		  background-size: 110%;
-		}
-	</style>
-	<div class="main" id="main"> 
-		<div id="centered">
-			<h3 class="score" id="water_count" >50</h3> 
-			<h3 class="spacer"></h3>
-			<h3 class="score" id="earth_count"> 50</h3>
-		</div>
-	</div>
-    <script type="text/javascript" src="js/scoreCalc.js"></script>
-    <script type="text/javascript" src="js/BlueBalanceScript.js"></script>
-</body> 
+    <h1>Red Alliance Breakdown - Match <span id="matchNum">0</span></h1>
+    <div class="breakdown" id="redBreakdown"></div>
+
+    <script src="js/redBalanceScript.js"></script>
+</body>
+</html>

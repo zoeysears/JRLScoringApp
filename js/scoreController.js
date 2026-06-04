@@ -14,9 +14,25 @@ function post(path, params) {
 	});
 }
 
+$('#submit').click(function () {
+    const info = {};
+    $(".red1 input, .blue1 input").each(function () {
+        info[this.id] = this.value;
+    });
+    info["match_num"] = matchNum;
+
+    $.post('./php/postFinalScore.php', info, function(res) {
+        alert("Match finalized successfully!");
+        changeLockBtn(false);
+    });
+});
+
 $('#lockbtn').click(function () {
-	shiftLastPress(this);
-	changeLockBtn(!isLocked);
+    const locked = !isLocked;
+    $.post('./php/updateStatus.php', {score_lock: locked ? 1 : 0}, function() {
+        isLocked = locked;
+        if (locked) window.open('liveScore.html', '_blank');
+    });
 });
 
 var lastPressed = [];

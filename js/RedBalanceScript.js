@@ -1,44 +1,13 @@
-//var endGame = new Audio('./sounds/4_match_endgame.wav');
-//endGame.play();
-
-//This function updates the time display given the time as an int
-function updateTime(newTime) {
-    var min = Math.floor(newTime / 60).toString();
-    var sec = newTime % 60;
-    if (sec < 10) {
-        sec = "0" + sec.toString();
-    } else {
-        sec = sec.toString();
-    }
-    var display = min + ":" + sec;
-    $("#time").html(display);
+function loadBalance(alliance, matchNum) {
+    $.post('./php/getMatch.php', {match_num: matchNum}, function(data) {
+        const m = JSON.parse(data)[0];
+        // Populate tables (similar to previous example)
+        // ... build HTML for auto/tele/endgame sections
+    });
 }
 
-//this runs when the page has loaded
-$(document).ready(function () {
-
-    //set interval causes a function to run every given miliseconds (in this case 500)
-    setInterval(function () {
-       // calcScore();
-
-        //this is a jQuery function to send a HTTP request
-        $.ajax({
-            //give the url to go to (the .. means go up a folder)
-            url: './php/GetStatus.php',
-
-            //this says what todo as soon as all the data has been loaded
-            success: function (data) {
-                //console.log(data); //print out the data
-                console.log(data);
-                //convert the JSON string to a JavaScript object (also called a key:value array)
-                var info = $.parseJSON(data);
-
-				$("#fire_count").html(info["fire_count"]);
-                $("#air_count").html(info["air_count"]);
-				
-
-            }
-        });
-
-    }, 250);
+$(document).ready(() => {
+    const params = new URLSearchParams(location.search);
+    const mn = params.get('match_num') || document.getElementById('matchNum')?.textContent;
+    loadBalance('red', mn);
 });
