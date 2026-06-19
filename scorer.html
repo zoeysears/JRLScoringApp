@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
     <title>Scorer</title>
 
@@ -15,172 +14,347 @@
 
 <body>
 
-<div id="main">
+    <div id="main">
 
-    <!-- TOP BAR -->
+        <!-- TOP BAR -->
 
-    <div id="positionButtons">
+        <div id="positionButtons">
 
-        <select id="position_select">
-            <option value="blue">Blue Alliance</option>
-            <option value="red">Red Alliance</option>
-        </select>
+            <select id="position_select">
+                <option value="blue">Blue Alliance</option>
+                <option value="red">Red Alliance</option>
+            </select>
 
-        <button id="reset">Reset</button>
+            <button id="reset">Reset</button>
 
-        <button id="confirmBtn" class="confirmBtn">
-            Confirm
-        </button>
+            <button id="confirmBtn" class="confirmBtn">
+                Confirm
+            </button>
 
+        </div>
+
+        <div id="BlueSide">
+            <!-- ALLIANCE HEADER -->
+            <div id="BlueAllianceHeader" class="AllianceHeader BlueAlliance">
+                BLUE ALLIANCE
+            </div>
+
+            <!-- AUTO -->
+
+            <div class="Section">
+
+                <div class="SectionTitle">
+                    Auto
+                </div>
+
+                <div class="ScoreGrid">
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">Mobility</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="blue_mobSubButton" onclick="sub(this)" min="0">-</button>
+                            <div class="counterBlue" id="blue_mobCounter">00</div>
+                            <button class="plusButton" id="blue_mobAddButton" onclick="add(this)" max="3">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP1 High</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="blue_auto_gp1_highSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterBlue" id="blue_auto_gp1_highCounter">00</div>
+                            <button class="plusButton" id="blue_auto_gp1_highAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP1 Low</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="blue_auto_gp1_lowSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterBlue" id="blue_auto_gp1_lowCounter">00</div>
+                            <button class="plusButton" id="blue_auto_gp1_lowAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP2 High</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="blue_auto_gp2_highSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterBlue" id="blue_auto_gp2_highCounter">00</div>
+                            <button class="plusButton" id="blue_auto_gp2_highAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP2 Low</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="blue_auto_gp2_lowSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterBlue" id="blue_auto_gp2_lowCounter">00</div>
+                            <button class="plusButton" id="blue_auto_gp2_lowAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TELEOP -->
+
+            <div class="Section">
+
+                <div class="SectionTitle">
+                    Teleop
+                </div>
+
+                <div class="ScoreGrid">
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP1 High</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="blue_tele_gp1_highSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterBlue" id="blue_tele_gp1_highCounter">00</div>
+                            <button class="plusButton" id="blue_tele_gp1_highAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP1 Low</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="blue_tele_gp1_lowSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterBlue" id="blue_tele_gp1_lowCounter">00</div>
+                            <button class="plusButton" id="blue_tele_gp1_lowAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP2 High</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="blue_tele_gp2_highSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterBlue" id="blue_tele_gp2_highCounter">00</div>
+                            <button class="plusButton" id="blue_tele_gp2_highAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP2 Low</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="blue_tele_gp2_lowSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterBlue" id="blue_tele_gp2_lowCounter">00</div>
+                            <button class="plusButton" id="blue_tele_gp2_lowAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- END GAME -->
+
+            <div class="Section">
+
+                <div class="SectionTitle">
+                    End Game
+                </div>
+
+                <div class="EndGameGrid" id="BlueEndgame">
+                    <div class="Label1">Robot 1</div>
+                    <button class="RadioButton" id="_" onclick="RadioClick(this)" RadioGroup="Endgame1">None</button>
+                    <button class="RadioButton" id="blue_park" onclick="RadioClick(this)"
+                        RadioGroup="Endgame1">Park</button>
+                    <button class="RadioButton" id="blue_climb" onclick="RadioClick(this)"
+                        RadioGroup="Endgame1">Climb</button>
+
+                    <div class="Label2">Robot 2</div>
+                    <button class="RadioButton" id="_" onclick="RadioClick(this)" RadioGroup="Endgame2">None</button>
+                    <button class="RadioButton" id="blue_park" onclick="RadioClick(this)"
+                        RadioGroup="Endgame2">Park</button>
+                    <button class="RadioButton" id="blue_climb" onclick="RadioClick(this)"
+                        RadioGroup="Endgame2">Climb</button>
+
+                    <div class="Label3">Robot 3</div>
+                    <button class="RadioButton" id="_" onclick="RadioClick(this)" RadioGroup="Endgame3">None</button>
+                    <button class="RadioButton" id="blue_park" onclick="RadioClick(this)"
+                        RadioGroup="Endgame3">Park</button>
+                    <button class="RadioButton" id="blue_climb" onclick="RadioClick(this)"
+                        RadioGroup="Endgame3">Climb</button>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="RedSide">
+            <!-- ALLIANCE HEADER -->
+            <div id="RedAllianceHeader" class="AllianceHeader RedAlliance">
+                RED ALLIANCE
+            </div>
+
+            <!-- AUTO -->
+
+            <div class="Section">
+
+                <div class="SectionTitle">
+                    Auto
+                </div>
+
+                <div class="ScoreGrid">
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">Mobility</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="red_mobSubButton" onclick="sub(this)" min="0">-</button>
+                            <div class="counterRed" id="red_mobCounter">00</div>
+                            <button class="plusButton" id="red_mobAddButton" onclick="add(this)" max="3">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP1 High</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="red_auto_gp1_highSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterRed" id="red_auto_gp1_highCounter">00</div>
+                            <button class="plusButton" id="red_auto_gp1_highAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP1 Low</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="red_auto_gp1_lowSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterRed" id="red_auto_gp1_lowCounter">00</div>
+                            <button class="plusButton" id="red_auto_gp1_lowAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP2 High</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="red_auto_gp2_highSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterRed" id="red_auto_gp2_highCounter">00</div>
+                            <button class="plusButton" id="red_auto_gp2_highAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP2 Low</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="red_auto_gp2_lowSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterRed" id="red_auto_gp2_lowCounter">00</div>
+                            <button class="plusButton" id="red_auto_gp2_lowAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TELEOP -->
+
+            <div class="Section">
+
+                <div class="SectionTitle">
+                    Teleop
+                </div>
+
+                <div class="ScoreGrid">
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP1 High</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="red_tele_gp1_highSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterRed" id="red_tele_gp1_highCounter">00</div>
+                            <button class="plusButton" id="red_tele_gp1_highAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP1 Low</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="red_tele_gp1_lowSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterRed" id="red_tele_gp1_lowCounter">00</div>
+                            <button class="plusButton" id="red_tele_gp1_lowAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP2 High</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="red_tele_gp2_highSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterRed" id="red_tele_gp2_highCounter">00</div>
+                            <button class="plusButton" id="red_tele_gp2_highAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ScoreCard">
+                        <div class="ScoreTitle">GP2 Low</div>
+                        <div class="ScoreControls">
+                            <button class="subButton" id="red_tele_gp2_lowSubButton" onclick="sub(this)"
+                                min="0">-</button>
+                            <div class="counterRed" id="red_tele_gp2_lowCounter">00</div>
+                            <button class="plusButton" id="red_tele_gp2_lowAddButton" onclick="add(this)">+</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- END GAME -->
+
+            <div class="Section">
+
+                <div class="SectionTitle">
+                    End Game
+                </div>
+
+                <div class="EndGameGrid" id="RedEndgame">
+                    <div class="Label1">Robot 1</div>
+                    <button class="RadioButton" id="_" onclick="RadioClick(this)" RadioGroup="Endgame1">None</button>
+                    <button class="RadioButton" id="red_park" onclick="RadioClick(this)"
+                        RadioGroup="Endgame1">Park</button>
+                    <button class="RadioButton" id="red_climb" onclick="RadioClick(this)"
+                        RadioGroup="Endgame1">Climb</button>
+
+                    <div class="Label2">Robot 2</div>
+                    <button class="RadioButton" id="_" onclick="RadioClick(this)" RadioGroup="Endgame2">None</button>
+                    <button class="RadioButton" id="red_park" onclick="RadioClick(this)"
+                        RadioGroup="Endgame2">Park</button>
+                    <button class="RadioButton" id="red_climb" onclick="RadioClick(this)"
+                        RadioGroup="Endgame2">Climb</button>
+
+                    <div class="Label3">Robot 3</div>
+                    <button class="RadioButton" id="_" onclick="RadioClick(this)" RadioGroup="Endgame3">None</button>
+                    <button class="RadioButton" id="red_park" onclick="RadioClick(this)"
+                        RadioGroup="Endgame3">Park</button>
+                    <button class="RadioButton" id="red_climb" onclick="RadioClick(this)"
+                        RadioGroup="Endgame3">Climb</button>
+
+
+                </div>
+
+            </div>
+        </div>
     </div>
 
-    <!-- ALLIANCE HEADER -->
-
-    <div id="AllianceHeader" class="AllianceHeader BlueAlliance">
-        BLUE ALLIANCE
-    </div>
-
-    <!-- AUTO -->
-
-    <div class="Section">
-
-        <div class="SectionTitle">
-            Auto
-        </div>
-
-        <div class="ScoreGrid">
-
-            <div class="ScoreCard">
-                <div class="ScoreTitle">Mobility</div>
-                <div class="ScoreControls">
-                    <button class="subButton" id="blue_mobSubButton" onclick="sub(this)" min="0">-</button>
-                    <div class="counterBlue" id="blue_mobCounter">00</div>
-                    <button class="plusButton" id="blue_mobAddButton" onclick="add(this)" max="3">+</button>
-                </div>
-            </div>
-
-            <div class="ScoreCard">
-                <div class="ScoreTitle">GP1 High</div>
-                <div class="ScoreControls">
-                    <button class="subButton" id="blue_auto_gp1_highSubButton" onclick="sub(this)" min="0">-</button>
-                    <div class="counterBlue" id="blue_auto_gp1_highCounter">00</div>
-                    <button class="plusButton" id="blue_auto_gp1_highAddButton" onclick="add(this)">+</button>
-                </div>
-            </div>
-
-            <div class="ScoreCard">
-                <div class="ScoreTitle">GP1 Low</div>
-                <div class="ScoreControls">
-                    <button class="subButton" id="blue_auto_gp1_lowSubButton" onclick="sub(this)" min="0">-</button>
-                    <div class="counterBlue" id="blue_auto_gp1_lowCounter">00</div>
-                    <button class="plusButton" id="blue_auto_gp1_lowAddButton" onclick="add(this)">+</button>
-                </div>
-            </div>
-
-            <div class="ScoreCard">
-                <div class="ScoreTitle">GP2 High</div>
-                <div class="ScoreControls">
-                    <button class="subButton" id="blue_auto_gp2_highSubButton" onclick="sub(this)" min="0">-</button>
-                    <div class="counterBlue" id="blue_auto_gp2_highCounter">00</div>
-                    <button class="plusButton" id="blue_auto_gp2_highAddButton" onclick="add(this)">+</button>
-                </div>
-            </div>
-
-            <div class="ScoreCard">
-                <div class="ScoreTitle">GP2 Low</div>
-                <div class="ScoreControls">
-                    <button class="subButton" id="blue_auto_gp2_lowSubButton" onclick="sub(this)" min="0">-</button>
-                    <div class="counterBlue" id="blue_auto_gp2_lowCounter">00</div>
-                    <button class="plusButton" id="blue_auto_gp2_lowAddButton" onclick="add(this)">+</button>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- TELEOP -->
-
-    <div class="Section">
-
-        <div class="SectionTitle">
-            Teleop
-        </div>
-
-        <div class="ScoreGrid">
-
-            <div class="ScoreCard">
-                <div class="ScoreTitle">GP1 High</div>
-                <div class="ScoreControls">
-                    <button class="subButton" id="blue_tele_gp1_highSubButton" onclick="sub(this)" min="0">-</button>
-                    <div class="counterBlue" id="blue_tele_gp1_highCounter">00</div>
-                    <button class="plusButton" id="blue_tele_gp1_highAddButton" onclick="add(this)">+</button>
-                </div>
-            </div>
-
-            <div class="ScoreCard">
-                <div class="ScoreTitle">GP1 Low</div>
-                <div class="ScoreControls">
-                    <button class="subButton" id="blue_tele_gp1_lowSubButton" onclick="sub(this)" min="0">-</button>
-                    <div class="counterBlue" id="blue_tele_gp1_lowCounter">00</div>
-                    <button class="plusButton" id="blue_tele_gp1_lowAddButton" onclick="add(this)">+</button>
-                </div>
-            </div>
-
-            <div class="ScoreCard">
-                <div class="ScoreTitle">GP2 High</div>
-                <div class="ScoreControls">
-                    <button class="subButton" id="blue_tele_gp2_highSubButton" onclick="sub(this)" min="0">-</button>
-                    <div class="counterBlue" id="blue_tele_gp2_highCounter">00</div>
-                    <button class="plusButton" id="blue_tele_gp2_highAddButton" onclick="add(this)">+</button>
-                </div>
-            </div>
-
-            <div class="ScoreCard">
-                <div class="ScoreTitle">GP2 Low</div>
-                <div class="ScoreControls">
-                    <button class="subButton" id="blue_tele_gp2_lowSubButton" onclick="sub(this)" min="0">-</button>
-                    <div class="counterBlue" id="blue_tele_gp2_lowCounter">00</div>
-                    <button class="plusButton" id="blue_tele_gp2_lowAddButton" onclick="add(this)">+</button>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- END GAME -->
-
-    <div class="Section">
-
-        <div class="SectionTitle">
-            End Game
-        </div>
-
-        <div class="EndGameGrid">
-	        <div class="Label1">Robot 1</div>
-			<button class="RadioButton" id="_" onclick="RadioClick(this)" RadioGroup="Endgame1">None</button>
-    				<button class="RadioButton" id="red_endgame_park" onclick="RadioClick(this)" RadioGroup="Endgame1">Park</button>
-					<button class="RadioButton" id="red_endgame_climb" onclick="RadioClick(this)" RadioGroup="Endgame1">Climb</button>
-					
-					<div class="Label2">Robot 2</div>
-					<button class="RadioButton" id="_" onclick="RadioClick(this)" RadioGroup="Endgame2">None</button>
-					<button class="RadioButton" id="red_endgame_park" onclick="RadioClick(this)" RadioGroup="Endgame2">Park</button>
-					<button class="RadioButton" id="red_endgame_climb" onclick="RadioClick(this)" RadioGroup="Endgame2">Climb</button>
-					
-					<div class="Label3">Robot 3</div>
-					<button class="RadioButton" id="_" onclick="RadioClick(this)" RadioGroup="Endgame3">None</button>
-					<button class="RadioButton" id="red_endgame_park" onclick="RadioClick(this)" RadioGroup="Endgame3">Park</button>
-					<button class="RadioButton" id="red_endgame_climb" onclick="RadioClick(this)" RadioGroup="Endgame3">Climb</button>
-
-
-        </div>
-
-    </div>
-
-</div>
-
-<script src="js/scorer.js"></script>
+    <script src="js/scorer.js"></script>
 
 </body>
+
 </html>

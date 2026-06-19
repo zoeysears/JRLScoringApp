@@ -147,6 +147,14 @@ button:active {
     color: blue;
 }
 
+.counterRed {
+    min-width: 70px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: blue;
+}
+
 /* ENDGAME */
 
 .EndGameGrid {
@@ -240,4 +248,8 @@ button:active {
 
 .confirmBtn.confirmed {
     background: #2ecc71;
+}
+
+#RedSide {
+    display: none;
 }
