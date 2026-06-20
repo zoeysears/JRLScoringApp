@@ -24,11 +24,13 @@ var counter = {
 
   red_climb: 0,
   red_park: 0,
+  
   blue_climb: 0,
   blue_park: 0,
 
   red_foul: 0,
   red_tech_foul: 0,
+  
   blue_foul: 0,
   blue_tech_foul: 0,
 };

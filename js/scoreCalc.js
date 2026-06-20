@@ -42,20 +42,20 @@ function calcScoreFromData(info) {
 	bluePenalties += parseInt(info["blue_foul"]) * 5;
 	bluePenalties += parseInt(info["blue_tech_foul"]) * 15;
 
-    redAutoScore += parseInt(info["red_auto_mob"]) * 7;
+    redAutoScore += parseInt(info["red_mob"]) * 7;
 
-    redAutoScore += parseInt(info["red_auto_diamond_ref"]) *8;
-    redAutoScore += parseInt(info["red_auto_ore_ref"]) *10;
-    redAutoScore += parseInt(info["red_auto_diamond_depo"]) *5;
-    redAutoScore += parseInt(info["red_auto_ore_depo"]) *6;
+    redAutoScore += parseInt(info["red_auto_gp1_high"]) *8;
+    redAutoScore += parseInt(info["red_auto_gp1_low"]) *10;
+    redAutoScore += parseInt(info["red_auto_gp2_high"]) *5;
+    redAutoScore += parseInt(info["red_auto_gp2_low"]) *6;
 
-    redTeleScore += parseInt(info["red_tele_diamond_ref"]) *5;
-    redTeleScore += parseInt(info["red_tele_ore_ref"]) *8;
-    redTeleScore += parseInt(info["red_tele_diamond_depo"]) *3;
-    redTeleScore += parseInt(info["red_tele_ore_depo"]) *5;
+    redTeleScore += parseInt(info["red_tele_gp1_high"]) *5;
+    redTeleScore += parseInt(info["red_tele_gp1_low"]) *8;
+    redTeleScore += parseInt(info["red_tele_gp2_high"]) *3;
+    redTeleScore += parseInt(info["red_tele_gp2_low"]) *5;
 		
-	redEndgameScore += parseInt(info["red_endgame_climb"]) * 15;
-	redEndgameScore += parseInt(info["red_endgame_park"]) * 7;
+	redEndgameScore += parseInt(info["red_climb"]) * 15;
+	redEndgameScore += parseInt(info["red_park"]) * 7;
 	
     redScore = redEndgameScore + redAutoScore + redTeleScore + bluePenalties;
     console.log(redScore);
@@ -63,20 +63,20 @@ function calcScoreFromData(info) {
 	//--------------------------------------------//
 	//--------------------------------------------//
 	
-    blueAutoScore += parseInt(info["blue_auto_mob"]) * 7;
+    blueAutoScore += parseInt(info["blue_mob"]) * 7;
 
-    blueAutoScore += parseInt(info["blue_auto_diamond_ref"]) *8;
-    blueAutoScore += parseInt(info["blue_auto_ore_ref"]) * 10;
-    blueAutoScore += parseInt(info["blue_auto_diamond_depo"]) *5;
-    blueAutoScore += parseInt(info["blue_auto_ore_depo"]) *6;
+    blueAutoScore += parseInt(info["blue_auto_gp1_high"]) *8;
+    blueAutoScore += parseInt(info["blue_auto_gp1_low"]) * 10;
+    blueAutoScore += parseInt(info["blue_auto_gp2_high"]) *5;
+    blueAutoScore += parseInt(info["blue_auto_gp2_low"]) *6;
 
-    blueTeleScore += parseInt(info["blue_tele_diamond_ref"]) *5;
-    blueTeleScore += parseInt(info["blue_tele_ore_ref"]) *8;
-    blueTeleScore += parseInt(info["blue_tele_diamond_depo"]) *3;
-    blueTeleScore += parseInt(info["blue_tele_ore_depo"]) *5;
+    blueTeleScore += parseInt(info["blue_tele_gp1_high"]) *5;
+    blueTeleScore += parseInt(info["blue_tele_gp1_low"]) *8;
+    blueTeleScore += parseInt(info["blue_tele_gp2_high"]) *3;
+    blueTeleScore += parseInt(info["blue_tele_gp2_low"]) *5;
 		
-	blueEndgameScore += parseInt(info["blue_endgame_climb"]) * 15;
-	blueEndgameScore += parseInt(info["blue_endgame_park"]) * 7;
+	blueEndgameScore += parseInt(info["blue_climb"]) * 15;
+	blueEndgameScore += parseInt(info["blue_park"]) * 7;
 	
     blueScore = blueEndgameScore + blueAutoScore + blueTeleScore + redPenalties;
     console.log(blueScore);
@@ -180,7 +180,9 @@ function addMatchToTeam(pos, matchData, scores, winScenario) {
             newData["matches_played"] = parseInt(teamData["matches_played"]) + 1;
             newData["qualification_score"] = parseInt(teamData["qualification_score"]);
 
+            //ZOEY TEST THIS BLOCK OF CODE DON"T REALLY UNDERSTAND
             var alliance = pos.slice(0, -1);
+            console.log(alliance);
             if (winScenario == 2) {
                 newData["qualification_score"] += 1;
             } else if (alliance == "blue") {
