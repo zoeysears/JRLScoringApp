@@ -27,14 +27,14 @@ The noise mainly the auto->tele noise need to be looked at and the noise when he
 add abort sounds to the controller 
 
 Test the whole process
-- Add Teams (Done)
-- Generate matches (done)
+- Add Teams
+- Generate matches 
 
 - Need to test scoring an match (done)
-- Need to test that manually updating a match works after finalize (done)
-    - need to check that the confirm button change the controller (DONE)
-- Need to check the reveal logic (done)
-- Need to check that the ranking pages are only getting updated when submit the match (done)
+- Need to test that manually updating a match works after finalize 
+    - need to check that the confirm button change the controller 
+- Need to check the reveal logic 
+- Need to check that the ranking pages are only getting updated when submit the match 
 - Test if all the modes work correctly on FMS
 - Need to check best way to add elim matches
 
