@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <head>
-  <title> LiveScore </title>
-  <link rel="stylesheet" href="css/LiveScoreStyle.css" type="text/css" >
-  <script src="js/jquery-3.1.1.min.js"></script>
+	<title> LiveScore </title>
+	<link rel="stylesheet" href="css/LiveScoreStyle.css" type="text/css">
+	<script src="js/jquery-3.1.1.min.js"></script>
 </head>
 
 <body>
 	<div id="background" style="
-		background: url(img/cave.png) center center / 150% no-repeat;
+		background: url(assets/cave.png) center center / 150% no-repeat;
 		height: 1080px;
 		background-position-y: -150px;
 	"> </div>
-	
-	<div class="main" id="main">  <!--Makes everything in this div part of the main body-->
+
+	<div class="main" id="main"> <!--Makes everything in this div part of the main body-->
 		<div id="centered" style="
 		font-size: 150%;
 		">
@@ -21,31 +22,94 @@
 				<div id="blueSide"> <!--Groups entire blue side-->
 					<div class="spacer"> </div> <!--Spacer-->
 					<div class="team"> <!--Groups blue teams-->
-						<h3 class="blueTeam" id="blue1" style="color: blue;">Blue 1:123</h3> 
-						<h3 class="blueTeam" id="blue2" style="color: blue;">Blue 2:123</h3> 
-						<h3 class="blueTeam" id="blue3" style="color: blue;">Blue 3:123</h3> 
+						<h3 class="blueTeam" id="blue1" style="color: blue;">Blue 1:123</h3>
+						<h3 class="blueTeam" id="blue2" style="color: blue;">Blue 2:123</h3>
+						<h3 class="blueTeam" id="blue3" style="color: blue;">Blue 3:123</h3>
 					</div>
 					<div>
 						<h3 class="score" id="blueScore">50</h3> <!--Adds score-->
 					</div>
 				</div>
-				</div>
-				<div id="redSide">
-					<div class="spacer"> </div>
-					<div class="team">
-						<h3 class="redTeam" id="red1" style="color: red;">Red 1:123</h3>
-						<h3 class="redTeam" id="red2" style="color: red">Red 2:123</h3>
-						<h3 class="redTeam" id="red3" style="color: red">Red 3:123</h3> 
-					</div>
-					<div>
-						<h3 class="score" id="redScore"> 50</h3>
-					</div>				
-				</div>
-				
-				<h2 id="time"> Time : 2:15 </h2>
 			</div>
+			<div id="redSide">
+				<div class="spacer"> </div>
+				<div class="team">
+					<h3 class="redTeam" id="red1" style="color: red;">Red 1:123</h3>
+					<h3 class="redTeam" id="red2" style="color: red">Red 2:123</h3>
+					<h3 class="redTeam" id="red3" style="color: red">Red 3:123</h3>
+				</div>
+				<div>
+					<h3 class="score" id="redScore"> 50</h3>
+				</div>
+			</div>
+
+			<h2 id="time"> Time : 2:15 </h2>
 		</div>
-		<div id="Videos" style="height:100%"><!-- Videos -->
+		<!-- Put this RIGHT BEFORE the closing </div> of <div class="main" id="main"> -->
+	<div id="ScoreReveal">
+		<div style="padding-bottom: 50px;">
+			<h2 id="matchNum">Match #:</h2>
+		</div>
+    <div class="alliances">
+        <!-- Red -->
+        <div class="alliance red">
+            <div class="alliance-name">RED ALLIANCE</div>
+            <div class="teams" id="redTeams"></div>
+
+            <div class="final-score">
+                FINAL <span id="redGrandTotal" class="score-value">0</span>
+            </div>
+
+            <div class="breakdown">
+                <div class="category">
+                    <h3>AUTO</h3>
+                    <div id="redAutoBreakdown" class="details"></div>
+                </div>
+                <div class="category">
+                    <h3>TELEOP</h3>
+                    <div id="redTeleBreakdown" class="details"></div>
+                </div>
+                <div class="category">
+                    <h3>ENDGAME</h3>
+                    <div id="redEndBreakdown" class="details"></div>
+					<hr>
+					<h3>PENALITIES</h3>
+					<div id="redPenaltiesBreakdown" class="details"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blue -->
+        <div class="alliance blue">
+            <div class="alliance-name">BLUE ALLIANCE</div>
+            <div class="teams" id="blueTeams"></div>
+
+            <div class="final-score">
+                FINAL <span id="blueGrandTotal" class="score-value">0</span>
+            </div>
+
+            <div class="breakdown">
+                <div class="category">
+                    <h3>AUTO</h3>
+                    <div id="blueAutoBreakdown" class="details"></div>
+                </div>
+                <div class="category">
+                    <h3>TELEOP</h3>
+                    <div id="blueTeleBreakdown" class="details"></div>
+                </div>
+                <div class="category">
+                    <h3>ENDGAME</h3>
+                    <div id="blueEndBreakdown" class="details"></div>
+					<hr>
+					<h3>PENALITIES</h3>
+					<div id="bluePenaltiesBreakdown" class="details"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	</div>
+	<!-- <div id="Videos" style="height:100%">
 			<video id = "RedWin" width="100%" height="100%" muted >
 				<source src="./Videos/JRL winner video - red.mp4" type="video/mp4">
 			</video> 
@@ -55,157 +119,9 @@
 			<video id = "Tie" width="100%" height="100%" muted >
 				<source src="./Videos/JRL winner video - tie.mp4" type="video/mp4">
 			</video> 
-		</div>
+		</div> -->
+	<!-- Put this RIGHT BEFORE the closing </div> of <div class="main" id="main"> -->
 	</div>
-
-	<div id="ScoreReveal" style="display: grid;grid-template-columns: 25% 45% 25%;gap: 20px;">
-		<h2 id="rev_matchNum" style="grid-column: 1/4;grid-row: 1/1;display: flex;justify-content: center;">Match # 6</h2>
-
-		<div class="team" style="
-			grid-column: 3;
-			grid-row: 2;
-			\: flex-end;
-			display: flow;
-			text-align: right;
-			">
-			<div style="display: flex;font-size: 150%;">
-				<h2 class="blueTeam" id="rev_blue1">35</h2>
-				<h2 class="blueTeam" id="rev_blue2">21</h2>
-				<h2 class="blueTeam" id="rev_blue3">28</h2>
-			</div>
-		</div>
-		<h4 class="score" id="rev_blueAuto" style="
-    grid-row: 3;
-    grid-column: 3;
-">0</h4>
-		<h4 class="score" id="rev_blueTele" style="
-    grid-row: 4;
-    grid-column: 3;
-">24</h4>
-		<h4 class="score" id="rev_blueEndgame" style="
-    grid-row: 5;
-    grid-column: 3;
-">0</h4>
-		<h4 class="score" id="rev_redPenalties" style="
-    grid-row: 6;
-    grid-column: 3;
-">0</h4>
-		<h3 class="score" id="rev_blueScore" style="
-    grid-row: 7;
-    grid-column: 3;
-">24</h3>
-		
-		<!-- <div id="rev_center" style="
-			text-align: center;
-			display: grid;
-			grid-column: 2;
-			grid-row-2/FONT-WEIGHT: 200;
-			grid-row: 2;
-			color: white;
-			font-size: 300%;
-			"> -->
-			<div style="
-    grid-row: 2;
-    grid-column: 2;
-    text-align: center;
-    font-size: 300%;
-    align-content: center;
-" class="rev_center">Teams</div>
-			<div style="
-    text-align: center;
-    background-color: #ff05;
-    grid-row: 3;
-    grid-column: 2;
-    font-size: 300%;
-    align-content: center;
-">Auto</div>
-			<div style="
-    background-color: #3f35;
-    grid-row: 4;
-    grid-column: 2;
-    text-align: center;
-    font-size: 300%;
-    align-content: center;
-">Tele</div>
-			<div style="
-    grid-row: 5;
-    grid-column: 2;
-    background-color: #f0f5;
-    text-align: center;
-    font-size: 300%;
-    align-content: center;
-">Endgame</div>
-			<div style="
-    grid-row: 6;
-    grid-column: 2;
-    text-align: center;
-    font-size: 300%;
-    align-content: center;
-">Penalties</div>
-			<div style="
-    grid-row: 7;
-    grid-column: 2;
-    text-align: center;
-    font-size: 300%;
-    align-content: center;
-">Total</div>
-		<!-- </div> -->
-		<!-- <div id="rev_red" style=" 
-			grid-column: 3;
-			grid-row: 2;
-			/* display: flex; */
-			width: 80%;
-			flex-direction: column;
-			text-align: start;
-			"> -->
-				<div class="team" style="
-					grid-column: 1;
-					grid-row: 2;
-					display: flow;
-					text-align: left;
-					"><div style="display: flex;font-size: 150%;">
-						<h2 class="redTeam" id="rev_red1">14</h2>
-						<h2 class="redTeam" id="rev_red2">11</h2>
-						<h2 class="redTeam" id="rev_red3">4</h2>
-					</div>
-				</div>
-			<h4 class="score" id="rev_redAuto">0</h4>
-			<h4 class="score" id="rev_redTele" style="
-    color: white;
-    font-size: 500%;
-    margin: auto;
-    text-shadow: 5px 5px black;
-    grid-row: 4;
-    grid-column: 1;
-">0</h4>
-			<h4 class="score" id="rev_redEndgame" style="
-    color: white;
-    font-size: 500%;
-    margin: auto;
-    text-shadow: 5px 5px black;
-    grid-row: 5;
-    grid-column: 1;
-">0</h4>
-			<h4 class="score" id="rev_bluePenalties" style="
-    color: white;
-    font-size: 500%;
-    margin: auto;
-    text-shadow: 5px 5px black;
-    grid-row: 6;
-    grid-column: 1;
-">0</h4>
-			<h3 class="score" id="rev_redScore" style="
-    color: white;
-    font-size: 500%;
-    margin: auto;
-    text-shadow: 5px 5px black;
-    grid-row: 7;
-    grid-column: 1;
-">0</h3>
-
-		<!-- </div> -->
-	</div>
-    <script type="text/javascript" src="js/scoreCalc.js"></script>
-    <script type="text/javascript" src="js/LiveScoreScript.js"></script>
+	<script type="text/javascript" src="js/scoreCalc.js"></script>
+	<script type="text/javascript" src="js/LiveScoreScript.js"></script>
 </body>
-

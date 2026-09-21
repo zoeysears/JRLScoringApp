@@ -20,7 +20,8 @@ $('#submit').click(function () {
         info[this.id] = this.value;
     });
     info["match_num"] = matchNum;
-
+	
+	console.log(info);
     $.post('./php/postFinalScore.php', info, function(res) {
         alert("Match finalized successfully!");
         changeLockBtn(false);
@@ -31,7 +32,7 @@ $('#lockbtn').click(function () {
     const locked = !isLocked;
     $.post('./php/updateStatus.php', {score_lock: locked ? 1 : 0}, function() {
         isLocked = locked;
-        if (locked) window.open('liveScore.html', '_blank');
+        // if (locked) window.open('liveScore.html', '_blank'); //figure out why this is a thing 
     });
 });
 
@@ -64,8 +65,10 @@ changeLockBtn = function (locked) {
 }
 
 $('#clearData').click(function () {
+	    if (confirm("would you like to reset ALL the data in the teams database?")) {
 	shiftLastPress(this);
 	clearTeamData();
+		}
 });
 
 $('#updateTeamRanks').click(function () {
@@ -84,7 +87,6 @@ $('#matchSet').click(function () {
 			$.ajax({
 				url: './php/GetCurrentMatch.php', success: function (data) {
 					var info = $.parseJSON(data);
-					console.log("submit log2 ", data);
 					post('./php/updateStatus.php',
 						{
 							red_score: 0,
@@ -135,47 +137,6 @@ $('#nextMatch').click(function () {
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-$('#submit').click(function () {
-	shiftLastPress(this);
-	var status = {};
-	$.ajax({
-		url: './php/getStatus.php', 
-		success: function (data) {
-			status = $.parseJSON(data);
-			var waiting = true;
-			var info = {};
-			$(".red1 input, .blue1 input, .red2 input, .blue2 input").each(function () {
-				//console.log(this.id, this.value);
-				if (!(this.id == "red_confirm" || this.id == "blue_confirm")) {
-					info[this.id] = this.value;
-				}
-			});
-			info["match_num"] = matchNum;
-			console.log(info);
-			$.ajax({
-				url: './php/postFinalScore.php', type: 'POST',
-				data: info,
-				success: function (data) {
-					console.log(data);
-					waiting = false;
-					
-					
-					//update teams from match
-					if (parseInt(status["match_num"]) < 200) {
-						updateTeamsInMatch(parseInt(status['match_num']));
-					}
-				}
-			});
-			
-			
-			
-			
-
-		}
-	});
-	changeLockBtn(false);
-});
 
 //this runs when the page has loaded
 $(document).ready(function () {
@@ -229,6 +190,7 @@ $(document).ready(function () {
 		$.ajax({
 			url: './php/getStatus.php', success: function (data) {
 				var info = $.parseJSON(data);
+				console.log(info);
 				document.getElementById("red_confirm").checked = info["red_confirm"] == '1';
 				document.getElementById("blue_confirm").checked = info["blue_confirm"] == '1';
 			}
@@ -249,17 +211,11 @@ function setScreen(val) {
 	});
 }
 
-$('#showScore').click(function () {
-	shiftLastPress(this);
-	setScreen(2);
-});
+// Show Black (Background only)
+$('#showBlack').click(() => setScreen(3));
 
-$('#showReveal').click(function () {
-	shiftLastPress(this);
-	setScreen(1);
-});
+// Show Match (Normal live scoring view)
+$('#showMatch').click(() => setScreen(2));
 
-$('#showBlack').click(function () {
-	shiftLastPress(this);
-	setScreen(3);
-});
+// Show Reveal (Breakdown screen)
+$('#showReveal').click(() => setScreen(1));

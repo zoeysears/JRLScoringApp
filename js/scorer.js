@@ -229,6 +229,7 @@ function checkChange(ele) {
 }
 
 function sendScore(id) {;
+  console.log("send score: " + id);
   // var key = alliance + "_" + id;
   var key = id;
   $.ajax({
@@ -241,6 +242,7 @@ function sendScore(id) {;
       console.log(info2["score_lock"]);
       if (info2["score_lock"] == "0") {
         var vals = { [key]: counter[id] };
+        console.log(vals);
         $.ajax({
           //give the url to go to (the .. means go up a folder)
           url: "./php/sendScore.php",

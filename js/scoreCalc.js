@@ -20,7 +20,7 @@ var blueTeleScore = 0;
 var blueAutoScore = 0;
 var blueEndgameScore = 0;
 
-
+//TO DO FIX ARBITRATORY VALUES
 function calcScoreFromData(info) {
     console.log("calc from data")
     redScore = 0;
@@ -119,7 +119,6 @@ function calcScore() {
         //this says what todo as soon as all the data has been loaded
         success: function (data) {
             scores = calcScoreFromMatchJSON(data);
-
             $.ajax({
                 url: './php/updateStatus.php',
                 data: scores,
@@ -244,36 +243,83 @@ function updateTeamData(data) {
     });
 }
 
-function updateTeamRanks() {
-	var updatedData = [];
-	$.ajax({
-	   url: './php/getMatches.php',
-		success: function (data) {
-			//convert the JSON string to a JavaScript object (also called a key:value array)
-			var info = $.parseJSON(data);
-			for (var i = 0; i < info.length; i++) {
-				match = info[i];
+async function updateTeamRanks() {
+    if (!confirm("This will RESET and recalculate ALL team rankings from scratch.\n\nAre you sure?")) {
+        return;
+    }
 
+    console.log("🚀 Starting full team rank recalculation...");
 
-				if (match["played"] == 1) {
-					var scores = calcScoreFromData(match);
-					// 0 is red win, 1 is blue win, 2 is tie
-					var winScenario = 0;
-					if (scores["blue_score"] > scores["red_score"]) {
-						winScenario = 1;
-					} else if (scores["blue_score"] == scores["red_score"]) {
-						winScenario = 2;
-					}
+    try {
+        // Step 1: Clear existing team data
+        await clearTeamDataPromise();
+        console.log("✅ Team data cleared.");
 
-					var positions = ['red1', 'red2','red3', 'blue1', 'blue2','blue3'];
-					// positions.forEach(function (pos) {
-            
-					// 	addMatchToTeam(pos, match, scores, winScenario);
-					// });
-				}
-			}
-			
-            console.log("Recalculated team data");
-		}
-	});
+        // Step 2: Get all matches
+        const data = await $.ajax({
+            url: './php/getMatches.php',
+            type: 'GET'
+        });
+
+        const matches = $.parseJSON(data);
+        console.log(`📊 Found ${matches.length} matches. Processing played matches...`);
+
+        let processed = 0;
+
+        for (let i = 0; i < matches.length; i++) {
+            const match = matches[i];
+
+            if (parseInt(match["played"]) === 1) {
+                const scores = calcScoreFromData(match);
+
+                let winScenario = 0; // 0 = red win, 1 = blue win, 2 = tie
+                if (scores["blue_score"] > scores["red_score"]) {
+                    winScenario = 1;
+                } else if (scores["blue_score"] === scores["red_score"]) {
+                    winScenario = 2;
+                }
+
+                const positions = ['red1', 'red2', 'red3', 'blue1', 'blue2', 'blue3'];
+
+                // Process all 6 teams for this match
+                for (let pos of positions) {
+                    await addMatchToTeamPromise(pos, match, scores, winScenario);
+                }
+
+                processed++;
+                console.log(`✅ Processed match ${match["match_num"]} (${processed} total)`);
+            }
+        }
+
+        console.log(`🎉 Team rank recalculation completed! ${processed} matches processed.`);
+        alert(`Team rankings successfully recalculated!\n${processed} matches processed.`);
+
+    } catch (error) {
+        console.error("❌ Error during rank update:", error);
+        alert("An error occurred while updating team ranks. Check console for details.");
+    }
+}
+
+// Helper to turn clearTeamData into a Promise
+function clearTeamDataPromise() {
+    return new Promise((resolve) => {
+        clearTeamData();           // Your existing function
+        // Give it a small delay to finish
+        setTimeout(resolve, 800);
+    });
+}
+
+// Helper to turn addMatchToTeam into a Promise (since it uses AJAX)
+function addMatchToTeamPromise(pos, matchData, scores, winScenario) {
+    return new Promise((resolve) => {
+        // Temporarily override the success callback to resolve the promise
+        const originalSuccess = addMatchToTeam; // backup if needed
+
+        // Call your existing function - it already does the AJAX inside
+        addMatchToTeam(pos, matchData, scores, winScenario);
+
+        // Since your addMatchToTeam doesn't return a promise, we resolve after a short delay
+        // (Better solution would be to modify addMatchToTeam later)
+        setTimeout(resolve, 300);
+    });
 }

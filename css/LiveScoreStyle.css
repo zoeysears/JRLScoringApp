@@ -6,7 +6,7 @@
 }
 
 html { 
-	background: url(../img/cave.png) no-repeat
+	background: url(../assets/cave.png) no-repeat
 		  center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -28,14 +28,6 @@ video{
 .spacer {
 	width : 100%;
 	height : 20px;
-}
-
-
-.fire, .air, .earth, .water{
-  background-color: #fffc;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
 }
 
 img{
@@ -110,30 +102,47 @@ img{
 	font-weight: bold;
 }
 
-#matchNum, #rev_matchNum {
+ #rev_matchNum {
 	font-size : 400%;
 	color : white;
 	text-align : top;
 	text-align : center;
 	width : 100%;
 	background: clear;
-	
+	position: absolute;
+	top: 80px;
+	left: 50%;
 	text-shadow: 5px 5px black;
+}
+#matchNum {
+    position: absolute;
+    top: 30px;           /* Moved higher */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4.2em;
+    color: white;
+    text-shadow: 4px 4px 10px black;
+    z-index: 100;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
 }
 
 #time {
-	vertical-align: top;
-    font-size: 600%;
-    display: block;
+    position: absolute;
+    top: 110px;          /* Increased gap */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6.8em;
     color: white;
-    margin: auto;
-    padding: 0px 0px;
-	width : 50%;
-	position: absolute;
-	right: 25%;
-	
-	text-shadow: 5px 5px black;
+    text-shadow: 5px 5px 12px black;
+    z-index: 100;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
 }
+
+
 
 #logo {
 	display: inline-block;
@@ -151,3 +160,119 @@ img{
 h4{
  font-size:70%;
 }
+
+
+#ScoreReveal {
+    display: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #0f1c2e;
+    color: #ffffff;
+    padding: 30px;
+    overflow: hidden;
+    z-index: 20;
+    font-family: 'Arial Black', Arial, sans-serif;
+    text-align: center;
+}
+
+.match-title {
+    font-size: 5em;
+    color: #ffd700;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px #ffd700;
+}
+
+.winner-banner {
+    background: linear-gradient(#ffd700, #ffaa00);
+    color: #000;
+    font-size: 5.5em;
+    font-weight: bold;
+    padding: 20px 80px;
+    margin: 20px auto;
+    width: fit-content;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(255,215,0,0.6);
+    text-transform: uppercase;
+}
+
+.alliances {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.alliance {
+    flex: 1;
+    background: rgba(255,255,255,0.95);
+    color: #111;
+    border: 8px solid;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.alliance.red  { border-color: #e63939; }
+.alliance.blue { border-color: #2a7de1; }
+
+.alliance-name {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+}
+
+.red .alliance-name  { color: #e63939; }
+.blue .alliance-name { color: #2a7de1; }
+
+.red .teams  { color: #e63939; }
+#blueTeams{ color: #2a7de1; }
+
+#redAutoBreakdown, #redTeleBreakdown, #redEndBreakdown, #redPenaltiesBreakdown {
+    color: #e63939
+}
+#blueAutoBreakdown, #blueTeleBreakdown, #blueEndBreakdown, #bluePenaltiesBreakdown {
+   color: #2a7de1
+}
+
+.teams {
+    font-size: 2.8em;
+    margin: 20px 0 30px;
+    font-weight: bold;
+}
+
+.final-score {
+    font-size: 4.8em;
+    font-weight: bold;
+    background: #111;
+    color: #ffd700;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 25px 0;
+}
+
+.breakdown {
+    display: flex;
+    gap: 20px;
+}
+
+.category {
+    flex: 1;
+    background: #f8f9fa;
+    border: 4px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 1.9em;
+    text-align: left;
+}
+
+.category h3 {
+    color: #1a1a1a;
+    font-size: 2.4em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.details {
+    line-height: 1.7;
+}
+
